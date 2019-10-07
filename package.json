@@ -32,8 +32,10 @@
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
     "react-helmet": "^5.2.0",
+    "react-zdog": "^1.0.10",
     "styled-components": "^4.4.0",
-    "uuid": "^3.2.1"
+    "uuid": "^3.2.1",
+    "zdog": "^1.1.0"
   },
   "keywords": [
     "gatsby"
@@ -49,6 +51,8 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
+    "eslint": "^6.5.1",
+    "eslint-plugin-react": "^7.16.0",
     "prettier": "^1.15.3"
   }
 }
