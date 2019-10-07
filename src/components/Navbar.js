@@ -1,8 +1,18 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import github from '../img/github-icon.svg'
 import logo from '../img/logo.svg'
 import { Logo } from "./Logo";
+import { ThemeToggler } from 'gatsby-plugin-dark-mode'
+import styled from "styled-components";
+
+const Label = styled.label`
+  display: flex;
+  align-items: center;
+  
+  input {
+    margin-right: 2px
+  }
+`
 
 const Navbar = class extends React.Component {
   constructor(props) {
@@ -39,12 +49,18 @@ const Navbar = class extends React.Component {
         className="navbar is-transparent"
         role="navigation"
         aria-label="main-navigation"
+        style={{
+          backgroundColor: 'var(--bg)',
+          color: 'var(--textNormal)',
+          transition: 'color 0.2s ease-out, background 0.2s ease-out',
+        }}
       >
         <div className="container">
           <Logo />
           <div className="navbar-brand">
-            <Link to="/" className="navbar-item" title="Logo">
-              <img src={logo} alt="Kaldi" style={{ width: '88px' }} />
+            <Link to="/" className="navbar-item" title="Logo"
+              style={{ paddingTop: 0 }}>
+              <h3 className="has-text-weight-bold is-size-3">Trunorth</h3>
             </Link>
             {/* Hamburger menu */}
             <div
@@ -65,9 +81,6 @@ const Navbar = class extends React.Component {
               <Link className="navbar-item" to="/about">
                 About
               </Link>
-              <Link className="navbar-item" to="/products">
-                Products
-              </Link>
               <Link className="navbar-item" to="/blog">
                 Blog
               </Link>
@@ -78,17 +91,19 @@ const Navbar = class extends React.Component {
                 Form Examples
               </Link>
             </div>
-            <div className="navbar-end has-text-centered">
-              <a
-                className="navbar-item"
-                href="https://github.com/netlify-templates/gatsby-starter-netlify-cms"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <span className="icon">
-                  <img src={github} alt="Github" />
-                </span>
-              </a>
+            <div className="navbar-end">
+              <ThemeToggler>
+                {({ theme, toggleTheme }) => (
+                  <Label>
+                    <input
+                      type="checkbox"
+                      onChange={e => toggleTheme(e.target.checked ? 'dark' : 'light')}
+                      checked={theme === 'dark'}
+                    />{' '}
+                    Dark mode
+                 </Label>
+                )}
+              </ThemeToggler>
             </div>
           </div>
         </div>

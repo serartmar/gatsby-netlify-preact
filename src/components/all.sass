@@ -2,13 +2,32 @@
 
 // Config vars
 // Kaldi logo brand color: #FD461E
-$kaldi-red: #D64000
+$kaldi-red: #d23669
 $kaldi-red-invert: #fff
 
 $primary: $kaldi-red
 $primary-invert: $kaldi-red-invert
 $body-color: #333
 $black: #2b2523
+
+body
+  --bg: white
+  --textNormal: #222
+  --textTitle: #d23669
+  --textLink: blue
+  --hr: hsla(0, 0%, 0%, 0.2)
+
+  background-color: var(--bg)
+  transition: background-color 350ms ease
+
+body.dark
+  -webkit-font-smoothing: antialiased
+
+  --bg: #282c35
+  --textNormal: hsla(0,0%,100%,0.88)
+  --textTitle: #ffa7c4
+  --textLink: yellow
+  --hr: hsla(0, 0%, 100%, 0.2)
 
 .navbar .navbar-menu
   box-shadow: none !important
@@ -64,7 +83,7 @@ $black: #2b2523
   color: #CC3700
   text-align: center
   -webkit-box-shadow: inset 0 0 0 2px #CC3700
-  box-shadow: inset 0 0 0 2px #f40
+  box-shadow: inset 0 0 0 2px#d23669
   -webkit-transition: all .15s ease
   transition: all .15s ease
 
@@ -135,3 +154,22 @@ $menu-label-color: $white-ter
     text-align: center
     max-width: 70%
     margin: 0 0 1em
+
+.content p,
+.navbar-item
+  color: var(--textNormal)
+
+.content h1,
+.content h2,
+.content h3,
+.content h4,
+.content h5,
+.content h6,
+.section h2,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+  color: var(--textTitle)
